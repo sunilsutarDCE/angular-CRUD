@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h3 class="mt-1 mb-1">Tasks from JSON</h3>
+      <div class="form-group mt-2">
+        <input type="text" placeholder="Search" class="form-control" name="search" [(ngModel)]="searchText" />
+      </div>
+      <div class="table-responsive">
+        <div [hidden]="!showMessage && showErrMessage==''" class="alert alert-danger">
+          <strong>Error:</strong> {{errorMessage}}
+        </div>
+        <div [hidden]="!showMessage && showSuceessMessage==''" class="alert alert-success">
+          <strong>Success:</strong> {{successMessage}}
+        </div>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>id</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of taskList | myFilter : searchText">
+            <td>{{task?.id}}</td>
+            <td>{{task?.description}}</td>
+            <td>{{task?.priority}}</td>
+            <td>{{task?.status}}</td>
+            <td>
+              <button class="btn btn-success btn-sm mr-1" (click)="editTask(task)">Update</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteTask(task)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <button class="btn btn-primary btn-sm mb-2 mt-2" (click)="addTask()">Add Task</button>
+    </div>
+  </div>
+</div>
