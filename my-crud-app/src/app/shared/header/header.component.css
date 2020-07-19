@@ -1,0 +1,8 @@
+.cp-navbar {
+    min-height:3rem;background-color: #000;color:#fff
+}
+.logo-container{position: relative;}
+.angularLogo{position: absolute;left: 45%;top: 25%;width: 50px;}
+.angularLogo img{max-width: 100px;}
+.nav-link{color:#fff}
+.nav-link.active{color:#9a9393}
